@@ -428,7 +428,11 @@ out.value=output;
                                         <h4 class="title">Add funds to wallet</h4>
                                         <p class="category">Choose one of the following payment modes to add funds to your wallet.</p>
                                         <a href="eth.php" class="btn btn-link" >Ethereum Payment</a>
-                                        <a href="pm.php" class="btn btn-link">Perfect Money Payment</a>
+                                        <a href="money.php" class="btn btn-link">Perfect Money Payment</a>
+                                        <a href="usdt.php" class="btn btn-link">USDT</a>
+                                        <a href="btc.php" class="btn btn-link">Bitcoin Cash</a>
+                                        <a href="mgram.php" class="btn btn-link">Moneygram</a>
+
                                     </div>
                                     <div class="content">
 <?php   

@@ -13,6 +13,7 @@ use PHPMailer\PHPMailer\Exception;
 $lname = $fname =$username = $email = $password = $cpassword = $phone = "";
 $lname_err = $fname_err = $username_err = $email_err = $password_err = $cpassword_err = $phone_err =  "";
 
+$agree_err = false;
 
 
 if(isset($_GET['refcode'])){
@@ -126,6 +127,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
     
+   
     // Check input errors before inserting in database
     if(empty($username_err) && empty($email_err) && empty($password_err) && empty($fname_err) && empty($lname_err) && empty($cpassword_err)){
         
@@ -406,8 +408,8 @@ else
 						</div>
 						<!-- Section Title Ends -->
 						<!-- Form Starts -->
-                                                <form action="" method="post">
-												<input type="hidden" name="bonus"   value="<?php echo $rb;?>">
+                            <form id="registerForm" action="" method="post">
+								<input type="hidden" name="bonus"   value="<?php echo $rb;?>">
 							<!-- Input Field Starts -->
 							<div class="form-group">
 								<input class="form-control" name="fname" id="fname" placeholder="First Name" type="text" required>
@@ -452,8 +454,8 @@ else
 
                             <!-- Input Field starts -->
                             <div class="form-group">
-									<input type="checkbox" name="agreeTerm" id="agreeTerm" value="false"> 
-									<label for="agreeTerm">Agree your policy.</label>
+									<input type="checkbox" name="agreeTerm" id="agreeTerm" value="true" />
+                                    <span>&nbsp;I agree with the terms and conditions.</span>
                             </div>
                             <!-- Input Filed ends -->
 							<!-- Submit Form Button Starts -->
@@ -477,7 +479,16 @@ else
         <script src="js/select2.min.js"></script>
         <script src="js/jquery.magnific-popup.min.js"></script>
         <script src="js/custom.js"></script>
-		
+		<script>
+            $('#registerForm').submit(function (e) {
+                if (!$('#agreeTerm').prop('checked')) {
+                    $('#agreeTerm').next().css('color', '#b95858');
+                    e.preventDefault();
+                }else{
+                    $('#agreeTerm').next().css('color', '#999');
+                }
+            })
+        </script>
 		<!-- Live Style Switcher JS File - only demo -->
 		<script src="js/styleswitcher.js"></script>
 

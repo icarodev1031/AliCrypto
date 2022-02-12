@@ -6,7 +6,7 @@ session_start();
 
 
 
-include "../config/db.php";
+// include "../config/db.php";
 include "../config/config.php";
 
 $msg = "";
